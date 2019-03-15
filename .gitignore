@@ -1,0 +1,9 @@
+# Files
+.DS_Store
+Thumbs.db
+
+# Log
+*.log
+
+# Default
+/node_modules/
