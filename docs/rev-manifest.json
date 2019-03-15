@@ -1,4 +1,13 @@
 {
+  "assets/css/iao-alert.min.css": "assets/css/iao-alert-482265b06a.min.css",
+  "assets/css/main.css": "assets/css/main-1d38bc2faa.css",
+  "assets/css/notifit.min.css": "assets/css/notifit-cbea297708.min.css",
+  "assets/img/share.png": "assets/img/share-5d02738e1a.png",
+  "assets/img/subtle_dots.png": "assets/img/subtle_dots-2fead619a4.png",
+  "assets/js/clipboard.min.js": "assets/js/clipboard-639cef7e4b.min.js",
+  "assets/js/iao-alert.jquery.min.js": "assets/js/iao-alert-4cd81742c6.jquery.min.js",
+  "assets/js/jquery-3.3.1.min.js": "assets/js/jquery-3-3221a14319.3.1.min.js",
+  "assets/js/main.js": "assets/js/main-1ba9aa2b9e.js",
   "css/combined.css": "css/combined-06019a5142.css",
   "scripts/combined.js": "scripts/combined-7544eb0f69.js"
 }
