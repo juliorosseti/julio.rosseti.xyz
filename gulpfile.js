@@ -4,11 +4,11 @@ var $ = require('gulp-load-plugins')({rename: {'gulp-rev-delete-original':'revde
 /* Base */
 gulp.task('copy', function() {
     return gulp.src(['src/assets/{img,font}/**/*', 'src/app.yaml'], {base: 'src'})
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest('docs'));
 });
 
 gulp.task('clean', function() {
-    return gulp.src('public/', {read: false})
+    return gulp.src('docs/', {read: false})
         .pipe($.clean());
 });
 
@@ -16,19 +16,19 @@ gulp.task('clean', function() {
 gulp.task('minify-js', function() {
   return gulp.src('src/**/*.js')
     .pipe($.uglify())
-    .pipe(gulp.dest('public/'))
+    .pipe(gulp.dest('docs/'))
 });
 
 gulp.task('minify-css', function() {
   return gulp.src('src/**/*.css')
     .pipe($.cssnano({safe: true}))
-    .pipe(gulp.dest('public/'))
+    .pipe(gulp.dest('docs/'))
 });
 
 gulp.task('minify-html', function() {
   return gulp.src('src/**/*.html')
     .pipe($.htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('public/'))
+    .pipe(gulp.dest('docs/'))
 });
 
 /* Concat */
@@ -39,26 +39,26 @@ gulp.task('useref', function () {
         .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.cssnano({safe: true})))
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest('docs'));
 });
 
 /* Gera versão de assets */
 gulp.task('rev', function(){
-  return gulp.src(['public/**/*.{css,js,jpg,jpeg,png,svg}'])
+  return gulp.src(['docs/**/*.{css,js,jpg,jpeg,png,svg}'])
     .pipe($.rev())
     .pipe($.revdel())
-    .pipe(gulp.dest('public/'))
+    .pipe(gulp.dest('docs/'))
     .pipe($.rev.manifest())
-    .pipe(gulp.dest('public/'))
+    .pipe(gulp.dest('docs/'))
 })
 
 gulp.task('revreplace', ['rev'], function(){
-  return gulp.src(['public/index.html', 'public/app.yaml', 'public/**/*.css'])
+  return gulp.src(['docs/index.html', 'docs/app.yaml', 'docs/**/*.css'])
     .pipe($.revReplace({
-        manifest: gulp.src('public/rev-manifest.json'),
+        manifest: gulp.src('docs/rev-manifest.json'),
         replaceInExtensions: ['.html', '.yaml', '.js', '.css']
     }))
-    .pipe(gulp.dest('public/'));
+    .pipe(gulp.dest('docs/'));
 });
 
 /* Alias */
